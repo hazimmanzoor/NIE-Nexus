@@ -78,4 +78,3 @@ Keep `.env` and your local database private. They are excluded from Git. Use `.e
 ## License
 
 No license has been added. Contact the repository owner before reusing or distributing this project.
->>>>>>> 7141e64 (Add demo login details to README)
