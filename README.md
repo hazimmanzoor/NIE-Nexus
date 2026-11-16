@@ -1,7 +1,7 @@
 # NIE Nexus
 
 NIE Nexus is a college event management web app for students, organizers, workers, and administrators. It brings event discovery, registrations, staff workflows, and event planning guidance together in one place.
-NIE Nexus is a college event management web app for students, organizers, workers, and administrators. It brings event discovery, registrations, team workflows, and event planning guidance together in one place.
+
 
 ## Features
 
