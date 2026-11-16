@@ -1,0 +1,6 @@
+.env
+campuspulse.db
+campuspulse.db-shm
+campuspulse.db-wal
+node_modules/
+.vscode/settings.json

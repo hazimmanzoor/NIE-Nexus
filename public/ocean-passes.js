@@ -1,0 +1,7 @@
+function motionKey(){return 'nexus-effects-'+(me?.id||'guest');}
+function readOceanMotion(){try{return localStorage.getItem(motionKey())!=='off';}catch{return true;}}
+function setOceanMotion(on){document.documentElement.dataset.oceanMotion=on?'on':'off';const b=$('oceanMotion');if(b){b.textContent=on?'Effects: on':'Effects: paused';b.setAttribute('aria-pressed',String(on));}}
+const beforeOceanTheme=setTheme;
+setTheme=function(theme){beforeOceanTheme(theme);if($('oceanMotion'))$('oceanMotion').hidden=false;};
+const beforeOceanInit=init;
+init=async function(){await beforeOceanInit();if(me.role==='student'){const tickets=document.querySelector('[data-nav="tickets"]');if(tickets){if(!document.querySelector('[data-nav="passes"]'))tickets.insertAdjacentHTML('afterend','<button data-nav="passes">◇ Buy Student Pass</button>');}}if(!$('oceanScene')){$('app').insertAdjacentHTML('afterbegin','<div id="oceanScene" class="ocean-scene" aria-hidden="true"><div class="ocean-rays"></div><div class="ocean-caustics"></div><div class="ocean-wave wave-back"></div><div class="ocean-wave wave-front"></div><div class="ocean-bubbles"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>');document.querySelector('.userchip').insertAdjacentHTML('beforeend','<button id="oceanMotion" class="secondary" type="button">Water effects</button>');$('oceanMotion').onclick=()=>{const on=document.documentElement.dataset.oceanMotion!=='on';setOceanMotion(on);try{localStorage.setItem(motionKey(),on?'on':'off');}catch{}};}setOceanMotion(readOceanMotion());$('oceanMotion').hidden=false;};
