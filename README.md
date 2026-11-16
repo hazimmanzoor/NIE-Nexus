@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NIE Nexus — Welcome and Specialist Chat Update
 
 This update starts from CampusPulse_Five_Specialist_Chatboxes_b5da704a.zip. The database and existing project records supplied in that archive are preserved.
@@ -34,3 +35,7 @@ Checks cover all 1,035 saved questions and their cross-agent redirects (5,175 co
 Service tests use real Express, session handling, password verification and SQLite with in-process request streams and isolated test data. They cover authentication, student-role rejection, event assignment/ownership, approval gates, separate histories, revision isolation, message limits and personal earnings. They do not modify the supplied database. Interface checks cover the hero replacement, five selectors, empty composer and absence of old provider controls.
 
 The welcome page was visually checked in Chrome at desktop and narrow window sizes using a separate interface fixture. Full worker-chat browser verification remains pending; the worker interface is covered by rendering and service checks. Matcher-only measurements on the test machine were approximately 1 ms at the 95th percentile for the short warmed-up test set; this does not guarantee end-to-end latency on other machines.
+=======
+# campuspulse
+**CampusPulse is a college event management app for students, organizers, workers, and administrators to manage campus events and related workflows.**
+>>>>>>> 296db607e88b7ea194422f9f120469c08c24d7ec
