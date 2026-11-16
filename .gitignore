@@ -1,6 +1,6 @@
 .env
-campuspulse.db
-campuspulse.db-shm
-campuspulse.db-wal
+nie-nexus.db
+nie-nexus.db-shm
+nie-nexus.db-wal
 node_modules/
 .vscode/settings.json

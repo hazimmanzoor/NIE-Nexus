@@ -1,5 +1,5 @@
 const express=require('express'),{DatabaseSync:Database}=require('node:sqlite'),bcrypt=require('bcryptjs'),session=require('express-session'),crypto=require('crypto'),path=require('path');
-const app=express(),db=new Database(path.join(__dirname,'campuspulse.db'));db.exec('PRAGMA journal_mode = WAL');
+const app=express(),db=new Database(path.join(__dirname,'nie-nexus.db'));db.exec('PRAGMA journal_mode = WAL');
 db.exec(`CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY,name TEXT,email TEXT UNIQUE,password TEXT,role TEXT,paid INTEGER DEFAULT 0,rate INTEGER DEFAULT 0);CREATE TABLE IF NOT EXISTS events(id INTEGER PRIMARY KEY,title TEXT,category TEXT,day TEXT,venue TEXT,price INTEGER,capacity INTEGER,organizer_id INTEGER,description TEXT,start_time TEXT DEFAULT '10:00',end_time TEXT DEFAULT '12:00');CREATE TABLE IF NOT EXISTS assignments(id INTEGER PRIMARY KEY,event_id INTEGER,worker_id INTEGER,title TEXT,status TEXT DEFAULT 'Pending',hours REAL DEFAULT 0,rating INTEGER DEFAULT 0);CREATE TABLE IF NOT EXISTS registrations(id INTEGER PRIMARY KEY,event_id INTEGER,user_id INTEGER,payment TEXT DEFAULT 'demo-paid',checked_in INTEGER DEFAULT 0,UNIQUE(event_id,user_id));CREATE TABLE IF NOT EXISTS queries(id INTEGER PRIMARY KEY,user_id INTEGER,event_id INTEGER,question TEXT,answer TEXT DEFAULT '',status TEXT DEFAULT 'Pending');CREATE TABLE IF NOT EXISTS shifts(id INTEGER PRIMARY KEY,worker_id INTEGER,event_id INTEGER,day TEXT,hours REAL,approved INTEGER DEFAULT 0);CREATE TABLE IF NOT EXISTS feedback(id INTEGER PRIMARY KEY,event_id INTEGER,user_id INTEGER,stars INTEGER,comment TEXT);`);
 if(!db.prepare('PRAGMA table_info(queries)').all().some(c=>c.name==='status'))db.exec("ALTER TABLE queries ADD COLUMN status TEXT DEFAULT 'Pending'");
 db.exec("UPDATE queries SET status='Answered' WHERE answer<>'' AND status='Pending'");
@@ -100,4 +100,4 @@ app.post('/api/student-passes',requireLogin,allow('student'),safe((req,res)=>{
  res.status(201).json({id:Number(result.lastInsertRowid),message:'Purchase successful. No money was charged.'});
 }));
 require('./workflow').install(app,db,safe,requireLogin,allow);
-app.listen(3000,'0.0.0.0',()=>console.log('CampusPulse running at http://localhost:3000 (LAN: http://YOUR-IP:3000)'));
+app.listen(3000,'0.0.0.0',()=>console.log('NIE Nexus running at http://localhost:3000 (LAN: http://YOUR-IP:3000)'));

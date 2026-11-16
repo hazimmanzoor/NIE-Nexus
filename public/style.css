@@ -59,7 +59,7 @@
 .card .cover.cover-photo img{width:100%;height:100%;min-height:0;display:block;object-fit:cover;object-position:center}
 @media(max-width:650px){.card .cover.cover-photo{height:190px;min-height:190px}}
 
-/* CAMPUSPULSE COFFEE EDITION — consistent warm gradient across all five roles */
+/* NIE NEXUS COFFEE EDITION — consistent warm gradient across all five roles */
 :root{--bg:#faf6f1;--ink:#261914;--muted:#89776c;--accent:#99552f;--accent2:#d99a65;--soft:#f5e7da}
 body{background:var(--bg);color:var(--ink)}
 body[data-role=admin],body[data-role=organizer],body[data-role=worker],body[data-role=student],body[data-role=student]{--accent:#98512f;--soft:#f5e6d7}
